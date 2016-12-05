@@ -1,0 +1,19 @@
+<h1>New Item</h1>
+
+<%= form_for :club, url:clubs_path do |f| %>
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :addr %>
+        <%= f.text_field :addr %>
+    </p>
+    <p>
+        <%= f.label :website %>
+        <%= f.text_field :website %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<%end%>
