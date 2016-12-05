@@ -1,10 +1,26 @@
 class ClubsController < ApplicationController
 
+  def index
+    @clubs=Club.all
+  end
+
+  def show
+    @club = Club.find(params[:id])
+  end
+
   def new
   end
 
   def create
-      render plain: params[:club].inspect
+      @club = Club.new(club_params)
+
+      @club.save
+      redirect_to @club
   end
+
+  private 
+    def club_params
+      params.require(:club).permit(:name, :addr, :website)
+    end
 
 end
