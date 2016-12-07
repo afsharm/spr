@@ -1,5 +1,14 @@
 <h1>New Item</h1>
-
+<%if @club.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@club.errors.count, "error")%> prohobited this club from being saved:
+        </h2>
+        <%@club.errors.full_messages.each do |msg|%>
+            <li><%=msg%></li>
+        <%end%>
+    </div>
+<%end%>
 <%= form_for :club, url:clubs_path do |f| %>
     <p>
         <%= f.label :name %>
