@@ -1,0 +1,27 @@
+<%= form_for @club do |f| %>
+<%if @club.errors.any? %>
+    <div id="error_explanation">
+        <h2>
+            <%= pluralize(@club.errors.count, "error")%> prohobited this club from being saved:
+        </h2>
+        <%@club.errors.full_messages.each do |msg|%>
+            <li><%=msg%></li>
+        <%end%>
+    </div>
+<%end%>
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :addr %>
+        <%= f.text_field :addr %>
+    </p>
+    <p>
+        <%= f.label :website %>
+        <%= f.text_field :website %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<%end%>

@@ -5,6 +5,7 @@
         <th>Addr</th>
         <th>Website</th>
         <th></th>
+        <th></th>
     </tr>
     <% @clubs.each do |club| %>
         <tr>
@@ -12,6 +13,7 @@
             <td><%=club.addr%></td>
             <td><%=club.website%></td>
             <td><%=link_to 'Show', club_path(club)%></td>
+            <td><%=link_to 'Edit', edit_club_path(club)%></td>
         </tr>
     <%end%>
 </table>
