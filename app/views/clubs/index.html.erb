@@ -5,15 +5,17 @@
         <th>Addr</th>
         <th>Website</th>
         <th></th>
-        <th></th>
     </tr>
     <% @clubs.each do |club| %>
         <tr>
             <td><%=club.name%></td>
             <td><%=club.addr%></td>
             <td><%=club.website%></td>
-            <td><%=link_to 'Show', club_path(club)%></td>
-            <td><%=link_to 'Edit', edit_club_path(club)%></td>
+            <td>
+                <%=link_to 'Show', club_path(club)%> |
+                <%=link_to 'Edit', edit_club_path(club)%> |
+                <%=link_to 'Destroy', club_path(club), method: :delete, data: {confirm: 'Are you sure?' } %>
+            </td>
         </tr>
     <%end%>
 </table>
